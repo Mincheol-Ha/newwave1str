@@ -1,7 +1,5 @@
 package com.example.newwave1str.web.entity;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,19 +14,19 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "users")
-public class UserEntity {
+@Table(name = "post")
+public class PostEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
     private Long id;
 
-    private String email;
+    private String title;
 
-    private String password;
+    private String content;
+
+    private String authorEmail;
 
     @CreationTimestamp
-    private LocalDateTime creatAt;
-
+    private LocalDateTime createdAt;
 }
