@@ -59,7 +59,7 @@ spring:
   jwt:
     secret: ${JWT_SECRET}
 
-## 📚 주요 API 명세
+📚 주요 API 명세
 Swagger UI에서 전체 경로/파라미터/예시 응답 확인 가능!
 
 구분	메서드	경로	설명
@@ -77,13 +77,13 @@ Swagger UI에서 전체 경로/파라미터/예시 응답 확인 가능!
 
 모든 인증이 필요한 요청은 JWT 토큰(Authorization: Bearer ...) 필요!
 
-## 🛡️ JWT 인증
+🛡️ JWT 인증
 로그인 성공 시, JWT Access Token을 응답으로 반환합니다.
 이후 인증이 필요한 API 요청 시,
 HTTP Header에 아래와 같이 토큰을 전달해야 합니다.
 Authorization: Bearer {발급받은_JWT_토큰}
 
-## 🗂️ 폴더 구조 예시
+🗂️ 폴더 구조 예시
 src
  └─ main
      └─ java
@@ -96,7 +96,7 @@ src
              ├─ dto           # DTO 클래스
              └─ filter        # JWT 필터
 
-## 🙋‍♂️ Contact & License
+🙋‍♂️ Contact & License
 Author: [YOUR NAME]
 Email: [YOUR EMAIL]
 License: MIT
