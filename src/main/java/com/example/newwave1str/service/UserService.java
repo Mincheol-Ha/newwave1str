@@ -9,6 +9,7 @@ import com.example.newwave1str.web.dto.UserRequestDto;
 import com.example.newwave1str.web.dto.UserResponseDto;
 import com.example.newwave1str.web.entity.UserEntity;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,22 +20,31 @@ public class UserService {
     private final JwtTokenProvider jwtTokenProvider;
     private final UserMapper userMapper;
 
+    private final PasswordEncoder passwordEncoder; // DI
+
     public UserResponseDto signup(UserRequestDto userRequestDto) {
         if (userJpaRepository.existsByEmail(userRequestDto.getEmail())) {
             throw new IllegalArgumentException("이미 가입된 이메일입니다.");
         }
 
         UserEntity userEntity = userMapper.toEntity(userRequestDto);
-        UserEntity savedUser = userJpaRepository.save(userEntity);
 
+        // 비밀번호 암호화!
+        userEntity.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
+
+        UserEntity savedUser = userJpaRepository.save(userEntity);
         return userMapper.toUserResponseDto(savedUser);
     }
 
-    public LoginResponseDto login(LoginRequestDto loginRequestDto) {
 
-        UserEntity user = userJpaRepository.findByEmailAndPassword(
-                        loginRequestDto.getEmail(), loginRequestDto.getPassword())
+    public LoginResponseDto login(LoginRequestDto loginRequestDto) {
+        UserEntity user = userJpaRepository.findByEmail(loginRequestDto.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("아이디 또는 비밀번호가 틀립니다."));
+
+        // 암호화된 비밀번호와 입력값 비교
+        if (!passwordEncoder.matches(loginRequestDto.getPassword(), user.getPassword())) {
+            throw new IllegalArgumentException("아이디 또는 비밀번호가 틀립니다.");
+        }
 
         String token = jwtTokenProvider.createToken(user.getEmail());
 
@@ -44,4 +54,5 @@ public class UserService {
                 .message("로그인 성공!")
                 .build();
     }
+
 }

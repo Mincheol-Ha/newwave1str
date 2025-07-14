@@ -3,15 +3,13 @@ package com.example.newwave1str.web.entity;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -24,6 +22,7 @@ public class UserEntity {
     @Column(name = "user_id")
     private Long id;
 
+    @Column(unique = true)
     private String email;
 
     private String password;
