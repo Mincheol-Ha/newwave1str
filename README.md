@@ -23,10 +23,24 @@
 ## ⚙️ 기술 스택
 
 - **Backend:** Spring Boot 3.x, Spring Data JPA, Spring Security
-- **DB:** MySQL, H2 (테스트용)
+- **DB:** MySQL
 - **문서화:** springdoc-openapi, Swagger UI
 - **빌드:** Gradle
 - **기타:** Lombok, MapStruct, JWT(jjwt)
+
+---
+
+## ℹ️ 프로젝트 정보 및 버전
+
+- **프로젝트 버전:** 0.0.1-SNAPSHOT
+- **JDK:** Java 21
+- **Spring Boot:** 3.5.3
+- **Spring Data JPA:** 3.2.x (Spring Boot Starter)
+- **Spring Security:** 6.x (Spring Boot Starter)
+- **Swagger (springdoc-openapi):** 2.6.0
+- **JWT:** jjwt 0.11.5
+- **MapStruct:** 1.5.5.Final
+- **빌드툴:** Gradle
 
 ---
 
