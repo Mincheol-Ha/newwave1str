@@ -77,3 +77,29 @@ Swagger UI에서 전체 경로/파라미터/예시 응답 확인 가능!
 
 모든 인증이 필요한 요청은 JWT 토큰(Authorization: Bearer ...) 필요!
 
+## 🛡️ JWT 인증
+로그인 성공 시, JWT Access Token을 응답으로 반환합니다.
+이후 인증이 필요한 API 요청 시,
+HTTP Header에 아래와 같이 토큰을 전달해야 합니다.
+Authorization: Bearer {발급받은_JWT_토큰}
+
+## 🗂️ 폴더 구조 예시
+src
+ └─ main
+     └─ java
+         └─ com.example.newwave1str
+             ├─ config        # 시큐리티 및 설정
+             ├─ controller    # API 컨트롤러
+             ├─ service       # 서비스 로직
+             ├─ repository    # JPA 리포지토리
+             ├─ entity        # 엔티티 클래스
+             ├─ dto           # DTO 클래스
+             └─ filter        # JWT 필터
+
+## 🙋‍♂️ Contact & License
+Author: [YOUR NAME]
+Email: [YOUR EMAIL]
+License: MIT
+
+
+
