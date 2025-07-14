@@ -1,4 +1,4 @@
-# 📝 1차 NewWave 프로젝트
+# 📝 NewWave 1차 프로젝트
 
 > Spring Boot 기반 게시판 서비스  
 > 회원가입/로그인, 게시글, 댓글, 좋아요, JWT 인증, Swagger 문서 자동화까지!
