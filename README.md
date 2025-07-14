@@ -85,16 +85,23 @@ Authorization: Bearer {발급받은_JWT_토큰}
 
 🗂️ 폴더 구조 예시
 src
- └─ main
-     └─ java
-         └─ com.example.newwave1str
-             ├─ config        # 시큐리티 및 설정
-             ├─ controller    # API 컨트롤러
-             ├─ service       # 서비스 로직
-             ├─ repository    # JPA 리포지토리
-             ├─ entity        # 엔티티 클래스
-             ├─ dto           # DTO 클래스
-             └─ filter        # JWT 필터
+└─ main
+    ├─ java
+        │ └─ com.example.newwave1str
+        │ ├─ config # 스프링/시큐리티 등 환경설정
+        │ ├─ controller # REST API 컨트롤러
+        │ ├─ filter # JWT 필터 등 시큐리티 필터
+        │ ├─ jwt # JWT 토큰 관련 유틸/Provider
+        │ ├─ mapper # MapStruct 매퍼
+        │ ├─ repository # JPA 리포지토리
+        │ ├─ service # 서비스 레이어
+        │ ├─ swagger # Swagger/OpenAPI 관련 설정
+        │ ├─ web # 엔티티, DTO 등 웹 계층(패키지 역할에 따라 변경)
+        │ └─ Newwave1strApplication.java
+    └─ resources
+    ├─ static
+    ├─ templates
+    └─ application.yaml
 
 🙋‍♂️ Contact & License
 Author: [YOUR NAME]
