@@ -1,4 +1,4 @@
-package com.example.newwave1str.controller;
+package com.example.newwave1str.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
