@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 public class CommentLikeResponseDto {
 
     private Long commentId;
-    private Long postId;
     private String email;
     private boolean liked;
     private String message;

@@ -23,15 +23,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String jwtToken = jwtTokenProvider.resolveToken(request);
         System.out.println("🟢 JWT: " + jwtToken);
 
-        if (jwtToken != null && jwtTokenProvider.validateToken(jwtToken)) {
-            System.out.println("🟢 토큰 유효성 OK");
-            Authentication authentication = jwtTokenProvider.getAuthentication(jwtToken);
-            System.out.println("🟢 인증 객체: " + authentication);
-
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        } else {
-            System.out.println("❌ 토큰이 없거나 유효하지 않음");
-        }
+//        if (jwtToken != null && jwtTokenProvider.validateToken(jwtToken)) {
+//            System.out.println("🟢 토큰 유효성 OK");
+//            Authentication authentication = jwtTokenProvider.getAuthentication(jwtToken);
+//            System.out.println("🟢 인증 객체: " + authentication);
+//
+//            SecurityContextHolder.getContext().setAuthentication(authentication);
+//        } else {
+//            System.out.println("❌ 토큰이 없거나 유효하지 않음");
+//        }
 
         filterChain.doFilter(request, response);
     }
